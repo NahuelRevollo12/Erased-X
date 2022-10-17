@@ -1,0 +1,28 @@
+JS:
+const foo = () => {}
+
+foo()
+
+React:
+
+const Foo = () => {
+    return()
+}
+
+1.Todos los componentes son funciones
+2.Todos los componentes se escriben con la inicial en Mayuscula
+3.Todos los componentes deben retornar algo
+4.Todos los componentes deben retornar 1(Un) sólo elemento
+5.Los componentes retornan JSX
+
+JSX -> JavaScript + XML
+
+Como leeria el navegador mi codigo:
+
+JSX -> <div id='contenedor'>Bienvenidos</div>
+
+Como lo lee el navegador -> react.createElement( "div", { id: "contenedor"}, 'Bienvenido')
+
+<></> --> React Fragments.
+
+rafce -> Atajo para crear plantilla de componente 
