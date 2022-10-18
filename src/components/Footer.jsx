@@ -1,11 +1,12 @@
+import { Navbar } from "react-bootstrap"
+
 const Footer = () => {
   return (
-    <div className="footer">
-        <p>
-        © Nahuel Revollo
-        </p>
-    </div>
-  )
-}
+    <footer>
+      <Navbar />
+    </footer>
+   
+  );
+};
 
 export default Footer

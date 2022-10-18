@@ -3,6 +3,7 @@ const Header = () => {
     return(
         <header>
            <Navbar />
+    
         </header>
 
     );

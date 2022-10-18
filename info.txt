@@ -5,7 +5,7 @@ foo()
 
 React:
 
-const Foo = () => {
+const Foo = (props) => {
     return()
 }
 
@@ -31,3 +31,67 @@ rafce -> Atajo para crear plantilla de componente
 -> exporto nombrado importo con llaves (import {Header} from './components/Header')
 
 * Sólo puedo tener 1 export default por archivo.
+
+ -- PROPS --
+JAVASCRIPT.
+
+const foo = (a,b) => {
+return a + b
+}
+
+foo(20,5)
+
+     ------------------------
+
+REACT.
+
+const Foo = () => {}
+
+<Foo key={value} />
+
+<Foo/>
+
+EJEMPLOS:
+
+
+//Ej-String-props:
+<Foo nombre='Nahuel' />
+
+//Ej-Numbers-props:
+<Foo numero={20} />
+
+//Ej-objeto-props:
+<Foo objeto={{id:1, nombre:"Nahuel"}} />
+
+//Ej-array-props:
+<Foo listaDelSuper={["Manzana", "Banana"]} />
+
+//EJ-funciones:
+
+const saludar = () => console.log('Bienvenidos')
+
+<Foo saludo={saludar} />
+
+
+-puede enviar:
+Array
+Objetos
+funciones
+booleano
+numbers
+strings (Es el único que puede enviarse sin llaves {})
+componentes
+
+IMG
+- Links desde la web
+<img src="imagendelaweb" alt="descripsion"/>
+
+- Img desde publick: --> siempre poner la ruta como si estuvieramos parados en public
+<img src="logo512.png" alt="" />
+
+- Desde src
+primero importo la imagen donde lo voy a poner 
+EJ:Main.JSX
+import from '.../../img/logo512';
+Luego lo pongo en el codigo Html así:
+<img src={logo} alt="" />
