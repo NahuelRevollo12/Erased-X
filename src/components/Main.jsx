@@ -1,8 +1,10 @@
+import { Card, Button } from 'react-bootstrap';
+
 const Main = () => {
     return (
         <main style={{ display: 'flex', justifyContent: 'center' }}>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
                 <Card.Body>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
