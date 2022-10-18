@@ -26,3 +26,8 @@ Como lo lee el navegador -> react.createElement( "div", { id: "contenedor"}, 'Bi
 <></> --> React Fragments.
 
 rafce -> Atajo para crear plantilla de componente 
+
+-> export default importo sin llaves (import Header from './components/Header')
+-> exporto nombrado importo con llaves (import {Header} from './components/Header')
+
+* Sólo puedo tener 1 export default por archivo.
