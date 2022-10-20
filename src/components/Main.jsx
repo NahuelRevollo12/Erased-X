@@ -1,5 +1,5 @@
 import { Card, Button } from 'react-bootstrap';
-import ItemListContainer from './ItemListContainer';
+
 
 
 const Main = (props) => {
@@ -8,98 +8,49 @@ const Main = (props) => {
     //3.desestructuring -- const {saludo} = props; abajo poner "{saludo}"
 
     return (
-    
-        <main style={{ display: 'flex', justifyContent: 'center' }}>
-            
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw9b936f6e/products/NI_DJ6914-063/NI_DJ6914-063-1.JPG" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Comprar</Button>
-                </Card.Body>
-            </Card>
-            <ItemListContainer greeting={"Hola, bienvenidos"}/>
+
+        <main className='container'>
+            <div className="row">
+                <div className='col-md-3'>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="data:image/jpeg;base64,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" />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className='col-md-3'>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmhymPWVCPcBLplP6VIu410fmUxL1a3_kyqTJUvFkzrEX3sBlG5I2qc3Ru3skAk45qDeY&usqp=CAUholder.js/100px180" />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+                <div className='col-md-3'>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ9tRPVNY2FjrNzwgYk4cOPSLq4Xedb-kheQ&usqp=CAU" />
+                        <Card.Body>
+                            <Card.Title>Card Title</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </div>
         </main>
     )
 }
