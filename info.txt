@@ -95,3 +95,27 @@ EJ:Main.JSX
 import from '.../../img/logo512';
 Luego lo pongo en el codigo Html así:
 <img src={logo} alt="" />
+
+La Logica siempre estará entre "const" y antes de "Return"*
+
+
+Eventos
+-Se escriben con camelCase (TODOS!) y se escriben en la propia etiqueta html.
+
+CADA VEZ QUE HAY A UN CAMBIO DE ESTADO, VAMOS DE UN PROP A UN EVENTO QUE
+ DISPARE UN CAMBIO DE ESTADO O UN CAMBIO DE PROP, SE VOLVERA A RENDERIZAR EL COMPONENTE
+
+Estados:
+
+Hook --> useState() -> [1,2] = useState()
+
+- La primera posicion es mi estado y la segunda la funcion seteadora
+- Dentro de los parentesis puedo poner un valor inicial para que mi estado no arranque en
+undefined
+
+const [state, setState] = useState(0) -> 0 es mi valor inicial.
+
+La única manera que tengo de modificar mi estado es a través de la funcion seteadora.
+setState( state + 10)
+
+React solo modifica el DOM cuando escucha que se emite una funcion seteadora.

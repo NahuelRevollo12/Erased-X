@@ -1,9 +1,14 @@
-import { Navbar } from "react-bootstrap"
+import NavbarFooter from "./NavbarFooter";
+
 
 const Footer = () => {
   return (
     <footer>
-      <Navbar />
+      
+      
+      <NavbarFooter />
+
+      
     </footer>
    
   );
