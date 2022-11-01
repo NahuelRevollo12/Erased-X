@@ -18,15 +18,14 @@ const ItemDetailContainer = () => {
 
       });
     };
-    getProduct.then((res) => {
-      setItem(res);
+    getProduct()
+      .then((res) => {
+        setItem(res);
 
-    }).catch((error) => {
-      console.log(error);
-    });
+      }).catch((error) => {
+        console.log(error);
+      });
   });
-
-
 
 
   return (
