@@ -1,6 +1,6 @@
 import React from 'react'
 import Contador from './Contador'
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item }) => {
     const onAdd = (cantidad) => console.log(cantidad);
   return (
     <div className="detail">

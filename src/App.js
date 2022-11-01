@@ -19,7 +19,7 @@ const App = () => {
         <Route path='/' element={
           <ItemListContainer saludo="Bienvenidos a Erased, el mejor sitio para vos." />} />
 
-        <Route path='/category/:categoryName' element={<ItemListContainer />}/>
+        <Route path='/categoria/:categoryName' element={<ItemListContainer />}/>
         
         <Route path='/detail/:idProd' element={
           <ItemDetailContainer />} />

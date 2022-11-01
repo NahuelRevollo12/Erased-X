@@ -17,9 +17,9 @@ const Navbar = () => {
                     <Link className="links" to="/">Erased-X</Link>
                 </h1>
                 <ul>
-                    <NavLink className="links" to="/category/camisas">Camisas</NavLink>
-                    <NavLink className="links" to="/category/zapatillas">Zapatillas</NavLink>
-                    <NavLink className="links" to="/category/gorras">Gorras</NavLink>
+                    <NavLink className="links" to="/categoria/gorras">Gorras</NavLink>
+                    <NavLink className="links" to="/categoria/zapatillas">Zapatillas</NavLink>
+                    <NavLink className="links" to="/categoria/camisas">Camisas</NavLink>
                 </ul>
                 <Link className="links" to="/cart">
                     <CardWidget />
