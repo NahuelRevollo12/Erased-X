@@ -3,7 +3,7 @@ export const products = [
         id: 1,
         descuento: 15,
         title: 'Gorras',
-        price: 2000,
+        price: 5000,
         stock: 10,
         category: 'gorras',
         img: 'https://scontent.fpra1-1.fna.fbcdn.net/v/t1.6435-9/145819675_3875816095836897_3957949383066192389_n.jpg?stp=dst-jpg_p960x960&_nc_cat=103&ccb=1-7&_nc_sid=36a2c1&_nc_ohc=2Q8csAciC8gAX9RzLs-&_nc_ht=scontent.fpra1-1.fna&oh=00_AfBAyRkj7qFovZo3J4Fj5v4_d_XwtgNToUE_PRoVFU-V2g&oe=63821CED',

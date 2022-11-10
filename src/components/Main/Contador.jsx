@@ -15,6 +15,7 @@ const Contador = ({ stock, onAdd }) => {
         }
     };
 
+    // eslint-disable-next-line
     const reset = () => {
         setCantidad(0);
     };
@@ -43,3 +44,6 @@ const Contador = ({ stock, onAdd }) => {
 };
 
 export default Contador;
+
+// y acá la podriamos utilizarla
+//foo(parametro)
