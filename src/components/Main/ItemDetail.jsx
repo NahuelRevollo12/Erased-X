@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CartContext } from '../../context/CartContext';
 import Contador from './Contador'
 
 
@@ -7,17 +8,20 @@ const ItemDetail = ({ item }) => {
   //const [cant, setCant] = useState(0);
   const [show, setShow] = useState(true);
 
+  const { addToCart } = useContext(CartContext);
+
   const onAdd = (cantidad) => {
-    console.log(cantidad);
+    //console.log(cantidad);
     //setCant(cantidad);
     setShow(false);
+    addToCart(item, cantidad);
   };
 
   return (
     <div className="detail">
       <img src={item.img} alt={item.title} />
       <article>
-        
+
         {show ? (
           <h2>{item.title}</h2>
         ) : (

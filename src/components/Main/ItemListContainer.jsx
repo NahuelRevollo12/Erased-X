@@ -34,7 +34,7 @@ const ItemListContainer = ({ saludo }) => {
     }, [categoryName]);
 
     return (
-        <div onClick={() => console.log('click en ITLC')} className="container">
+        <div className="container">
             <h2>{saludo}</h2>
             <ItemList items={items} />
         </div>
