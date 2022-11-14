@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
+    const { totalUnidades } = useContext(CartContext);
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
 
@@ -8,7 +10,7 @@ const CartWidget = () => {
                 <span className="material-symbols-outlined">
                     shopping_cart
                 </span>
-                <span>10</span>
+                <span>{totalUnidades() !== 0 && totalUnidades()}</span>
                     
                
                 

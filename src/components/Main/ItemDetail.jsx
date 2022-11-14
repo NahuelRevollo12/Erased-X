@@ -22,6 +22,7 @@ const ItemDetail = ({ item }) => {
     <div className="detail">
       <img src={item.img} alt={item.title} />
       <article>
+      <h2>{item.title}</h2>
 
         <p>Las mejores prendas de ropa de esta temporada.</p>
         <h3>${item.price}.-</h3>

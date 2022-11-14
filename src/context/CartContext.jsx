@@ -5,18 +5,14 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    //crear copia del cart
-    // const copia = [...cart]
-    //const copia = cart.map((prod)=> prod )
-    //console.log(props.children);
 
     //funciones
     const addToCart = (item, cantidad) => {
-        //SPREAD --> ...item --> id: 1, title: 'Camisa', price: 200
-        //console.log({ ...item, cantidad });
+
         if (isInCart(item.id)) {
             //sumo la cantidad
-            //alert('Ya está en el carrito sumale la cantidad flaco 🚨');
+            sumarCantidad(item, cantidad);
+
         } else {
             setCart([...cart, { ...item, cantidad }]);
         }
@@ -28,6 +24,18 @@ const CartProvider = ({ children }) => {
     };
 
     //funcion para sumar la cantidad de un mismo producto
+    //Hecho con un Ternario
+    const sumarCantidad = (itemPorAgregar, cantidad) => {
+             const cartActualizado2 = cart.map((prodDelCarrito) =>
+                itemPorAgregar.id === prodDelCarrito.id
+                    ? {
+                          ...prodDelCarrito,
+                          cantidad: prodDelCarrito.cantidad + cantidad,
+                      }
+                    : prodDelCarrito
+            );
+             setCart(cartActualizado2)
+         };
 
     //funcion para vaciar el carrito
     const deleteAll = () => {
@@ -43,13 +51,36 @@ const CartProvider = ({ children }) => {
     //funcion para sumar total $ del carrito
 
     //funcion para sumar unidades totales del carrito (CartWidget)
+    const totalUnidades = () => {
+        let count = 0;
+        const copia = [...cart];
+        copia.forEach((prod) => {
+            count = count += prod.cantidad;
+        });
+        return count;
+    };
+    
+    // const totalUnidadesReduce = () => {
+    //     return cart.reduce((prev, curr)=> prev + curr.cantidad, 0)
+    // }
 
-    console.log(cart);
+    const totalPrecio = () => 1000;
+
+    //console.log(cart);
 
     //variables
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, deleteAll, deleteOne }}>
+        <CartContext.Provider
+            value={{
+                cart,
+                addToCart,
+                deleteAll,
+                deleteOne,
+                totalUnidades,
+                totalPrecio,
+            }}
+        >
             {children}
         </CartContext.Provider>
     );
