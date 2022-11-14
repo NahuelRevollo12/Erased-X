@@ -10,9 +10,15 @@ const Contador = ({ stock, onAdd }) => {
     };
 
     const restar = () => {
-        if (cantidad > 1) {
-            setCantidad(cantidad - 1);
+        //Ejemplo del profe, que se puede usar donde nosotros querramos.
+        //cantidad < stock ? setCantidad(cantidad + 1) : alert('No se pude seguir sumado')
+        cantidad < stock && setCantidad(cantidad + 1);
+        /* if (cantidad < stock) {
+            setCantidad(cantidad + 1);
         }
+        } else{
+            alert(...)
+        } */
     };
 
     // eslint-disable-next-line

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import Contador from './Contador'
 
@@ -22,14 +23,14 @@ const ItemDetail = ({ item }) => {
       <img src={item.img} alt={item.title} />
       <article>
 
-        {show ? (
-          <h2>{item.title}</h2>
-        ) : (
-          <h2>Este producto no tiene titulo</h2>
-        )}
         <p>Las mejores prendas de ropa de esta temporada.</p>
         <h3>${item.price}.-</h3>
-        <Contador stock={item.stock} onAdd={onAdd} />
+        {/* <h3>{show ? 'True' : 'False'}</h3> */}
+        {show ? (
+          <Contador stock={item.stock} onAdd={onAdd} />
+        ) : (
+          <Link to="/cart">Ver carrito</Link>
+        )}
       </article>
     </div>
   )

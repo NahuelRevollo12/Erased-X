@@ -8,8 +8,8 @@ const NavbarFooter = () => {
             <nav className='navbarFooter'>
                 <h1>Erased-X</h1>
                 <ul>
-                    <li>Catalogo</li>
-                    <li>Contacto</li>
+                    <li>Linkedin</li>
+                    <li>Instagram</li>
                 </ul>
                 
                 
