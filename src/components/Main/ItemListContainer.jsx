@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { products } from '../../mock/products';
+//import { products } from '../../mock/products';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom'
 import BarLoader from 'react-spinners/BarLoader';
@@ -19,6 +19,8 @@ const ItemListContainer = ({ saludo }) => {
     const { categoryName } = useParams()
 
     useEffect(() => {
+
+        //const q = query(collectionProd, where('category', '==', categoryName));
 
         getDocs(collectionProd)
             .then((res) => {
@@ -43,17 +45,7 @@ const ItemListContainer = ({ saludo }) => {
 
 
 
-        const getProducts = () => {
-            return new Promise((res, rej) => {
-                const prodFiltrados = products.filter((prod) => prod.category === categoryName)
-                const ref = categoryName ? prodFiltrados : products;
-                setTimeout(() => {
-                    res(ref);
-                }, 500);
-            });
-        };
-
-
+        
         // getProducts(categoryName)
         //     .then((res) => {
         //         setItems(res);

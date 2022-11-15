@@ -2,7 +2,9 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-import { products } from '../../mock/products'
+//import { products } from '../../mock/products'
+import { doc, getDoc } from 'firebase/firestore';
+import { collectionProd } from '../../services/firebaseConfig';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({})
@@ -10,35 +12,46 @@ const ItemDetailContainer = () => {
   const { idProd } = useParams();
 
   useEffect(() => {
-    const getProduct = () => {
-      return new Promise((res, rej) => {
-        const product = products.find((prod) => prod.id === +idProd)
-        setTimeout(() => {
-          res(product)
-        }, 500)
+    const ref = doc(collectionProd, idProd);
 
-      });
-    };
-    getProduct()
+    getDoc(ref)
       .then((res) => {
-        setItem(res);
 
-      }).catch((error) => {
+        //console.log(res);
+        setItem({
+          id: res.id,
+          ...res.data(),
+        });
+      })
+      .catch((error) => {
         console.log(error);
       })
       .finally(() => {
         setLoading(false);
       });
+
+
+
+    // getProduct(idProd)
+    //     .then((res) => {
+    //         setItem(res);
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     })
+    //     .finally(() => {
+    //         setLoading(false);
+    //     });
   }, [idProd]);
 
   // If con return temprano
   if (loading) {
     return (
-        <div className="detail-container">
-            <h1>Cargando...</h1>
-        </div>
+      <div className="detail-container">
+        <h1>Cargando...</h1>
+      </div>
     );
-}
+  }
 
 
   return (
