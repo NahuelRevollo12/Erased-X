@@ -26,16 +26,21 @@ const CartProvider = ({ children }) => {
     //funcion para sumar la cantidad de un mismo producto
     //Hecho con un Ternario
     const sumarCantidad = (itemPorAgregar, cantidad) => {
-             const cartActualizado2 = cart.map((prodDelCarrito) =>
-                itemPorAgregar.id === prodDelCarrito.id
-                    ? {
-                          ...prodDelCarrito,
-                          cantidad: prodDelCarrito.cantidad + cantidad,
-                      }
-                    : prodDelCarrito
-            );
-             setCart(cartActualizado2)
-         };
+        const cartActualizado = cart.map((prodDelCarrito) => {
+            
+            if (prodDelCarrito.id === itemPorAgregar.id) {
+                const productoActualizado = {
+                    ...prodDelCarrito,
+                    
+                    cantidad,
+                };
+                return productoActualizado;
+            } else {
+                return prodDelCarrito;
+            }
+        });
+        setCart(cartActualizado);
+    };
 
     //funcion para vaciar el carrito
     const deleteAll = () => {
@@ -66,6 +71,14 @@ const CartProvider = ({ children }) => {
 
     const totalPrecio = () => 1000;
 
+
+
+    //funcion para obtener la cantidad del producto
+    const cantidadDeProducto = (id) => {
+        const product = cart.find((prod) => prod.id === id);
+        return product?.cantidad;
+    };
+
     //console.log(cart);
 
     //variables
@@ -79,6 +92,7 @@ const CartProvider = ({ children }) => {
                 deleteOne,
                 totalUnidades,
                 totalPrecio,
+                cantidadDeProducto,
             }}
         >
             {children}

@@ -9,7 +9,7 @@ const ItemDetail = ({ item }) => {
   //const [cant, setCant] = useState(0);
   const [show, setShow] = useState(true);
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cantidadDeProducto } = useContext(CartContext);
 
   const onAdd = (cantidad) => {
     //console.log(cantidad);
@@ -18,17 +18,24 @@ const ItemDetail = ({ item }) => {
     addToCart(item, cantidad);
   };
 
+  const cantidad = cantidadDeProducto(item.id);
+
+
   return (
     <div className="detail">
       <img src={item.img} alt={item.title} />
       <article>
-      <h2>{item.title}</h2>
+        <h2>{item.title}</h2>
 
         <p>Las mejores prendas de ropa de esta temporada.</p>
         <h3>${item.price}.-</h3>
         {/* <h3>{show ? 'True' : 'False'}</h3> */}
         {show ? (
-          <Contador stock={item.stock} onAdd={onAdd} />
+          <Contador
+            stock={item.stock}
+            onAdd={onAdd}
+            initial={cantidad}
+          />
         ) : (
           <Link to="/cart">Ver carrito</Link>
         )}

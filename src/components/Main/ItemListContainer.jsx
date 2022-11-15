@@ -6,6 +6,8 @@ import BarLoader from 'react-spinners/BarLoader';
 //Skeleton muy parecido a YT con lineas al cargar.
 //import Skeleton from 'react-loading-skeleton';
 //import 'react-loading-skeleton/dist/skeleton.css';
+import { getDocs, query, where } from 'firebase/firestore';
+import { collectionProd } from '../../services/firebaseConfig';
 
 const ItemListContainer = ({ saludo }) => {
     const [items, setItems] = useState([]);
@@ -18,6 +20,29 @@ const ItemListContainer = ({ saludo }) => {
 
     useEffect(() => {
 
+        getDocs(collectionProd)
+            .then((res) => {
+
+                //console.log(res.docs);
+                const products = res.docs.map((prod) => {
+                    //console.log(prod);
+                    //console.log(prod.data());
+                    return {
+                        id: prod.id,
+                        ...prod.data(),
+                    };
+                });
+                setItems(products);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+
+
+
         const getProducts = () => {
             return new Promise((res, rej) => {
                 const prodFiltrados = products.filter((prod) => prod.category === categoryName)
@@ -27,16 +52,18 @@ const ItemListContainer = ({ saludo }) => {
                 }, 500);
             });
         };
-        getProducts()
-            .then((res) => {
-                setItems(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+
+
+        // getProducts(categoryName)
+        //     .then((res) => {
+        //         setItems(res);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     })
+        //     .finally(() => {
+        //         setLoading(false);
+        //     });
 
         return () => setLoading(true);
     }, [categoryName]);
