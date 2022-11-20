@@ -27,11 +27,11 @@ const CartProvider = ({ children }) => {
     //Hecho con un Ternario
     const sumarCantidad = (itemPorAgregar, cantidad) => {
         const cartActualizado = cart.map((prodDelCarrito) => {
-            
+
             if (prodDelCarrito.id === itemPorAgregar.id) {
                 const productoActualizado = {
                     ...prodDelCarrito,
-                    
+
                     cantidad,
                 };
                 return productoActualizado;
@@ -54,6 +54,14 @@ const CartProvider = ({ children }) => {
     };
 
     //funcion para sumar total $ del carrito
+    const totalPrecio = () => {
+        let count = 0;
+        const copia = [...cart];
+        copia.forEach((prod) => {
+            count = count += prod.cantidad * prod.price;
+        });
+        return count;
+    };
 
     //funcion para sumar unidades totales del carrito (CartWidget)
     const totalUnidades = () => {
@@ -64,12 +72,12 @@ const CartProvider = ({ children }) => {
         });
         return count;
     };
-    
+
     // const totalUnidadesReduce = () => {
     //     return cart.reduce((prev, curr)=> prev + curr.cantidad, 0)
     // }
 
-    const totalPrecio = () => 1000;
+
 
 
 

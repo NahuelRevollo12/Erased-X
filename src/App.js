@@ -9,7 +9,7 @@ import ItemListContainer from './components/Main/ItemListContainer';
 import Form from './components/Form/Form';
 import Cart from './components/Cart/Cart';
 import CartProvider from './context/CartContext';
-// import Main from './components/Main/Main';
+
 
 
 const App = () => {

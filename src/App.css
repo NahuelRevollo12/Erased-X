@@ -126,8 +126,19 @@ main {
   font-size: 15px;
 }
 
+.containerCarrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
 
-
+.item-listCarrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 /* BODY */
 body {

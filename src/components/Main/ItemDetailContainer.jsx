@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-//import { products } from '../../mock/products'
 import { doc, getDoc } from 'firebase/firestore';
 import { collectionProd } from '../../services/firebaseConfig';
 
@@ -17,7 +16,6 @@ const ItemDetailContainer = () => {
     getDoc(ref)
       .then((res) => {
 
-        //console.log(res);
         setItem({
           id: res.id,
           ...res.data(),
@@ -30,18 +28,6 @@ const ItemDetailContainer = () => {
         setLoading(false);
       });
 
-
-
-    // getProduct(idProd)
-    //     .then((res) => {
-    //         setItem(res);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     })
-    //     .finally(() => {
-    //         setLoading(false);
-    //     });
   }, [idProd]);
 
   // If con return temprano
@@ -60,17 +46,7 @@ const ItemDetailContainer = () => {
     </div>
   )
 
-  //console.log(idProd)
-
-
-
-
-
 }
-
-
-
-
 
 
 export default ItemDetailContainer

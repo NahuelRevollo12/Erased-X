@@ -6,11 +6,7 @@ const Contador = ({ stock, onAdd, initial = 1 }) => {
     const sumar = () => {
         //cantidad < stock ? setCantidad(cantidad + 1) : alert('No se pude seguir sumado')
         cantidad < stock && setCantidad(cantidad + 1);
-        /* if (cantidad < stock) {
-            setCantidad(cantidad + 1);
-        } else{
-            alert(...)
-        } */
+        
     };
 
     const restar = () => {

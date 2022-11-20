@@ -1,84 +1,112 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { db } from '../../services/firebaseConfig';
 
 const Form = () => {
-    //const [name, setName] = useState('');
-    //const [lastName, setLastName] = useState('');
 
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [lastEmail, setLastEmail] = useState('');
+    const [orderId, setOrderId] = useState('');
+    const { cart, totalPrecio, deleteAll } = useContext(CartContext);
+    const totalCarrito = totalPrecio();
 
-    //Forma más compleja, cambiamos el value y creamos una sola funcion para los 2 campos. es para el dia de mañana tengamos más inputs.
-    const [data, setData] = useState({ nombre: '', apellido: '' });
 
 
     const enviarDatos = (e) => {
         e.preventDefault();
-        //console.log(e);
 
-        //enviar a mi base de datos los campos name y lastName
-        // const obj = {
-        //     comprador: {
-        //         nombre: name,
-        //         apellido: lastName,
-        //     },
-        // };
-        // Y se deberia enviar un par de inputs más, como email. imagen del producto, etc.
+    
+
+    const objOrden = {
+        buyer: {
+            name,
+            lastName,
+            telefono: 123456,
+            direccion: 'Calle siempre viva 123',
+            email,
+            lastEmail,
+        },
+        items: cart,
+        total: totalCarrito,
+        date: serverTimestamp(),
     };
 
 
-    const handleChange = (e) => {
-        //Aplicamos destructuring, para obtener los valores/campos:
-        const { name, value } = e.target;
-        //e.target.value tengo el valor
-        //e.target.name diferencio los campos
-        setData({ ...data, [name]: value });
-    };
-
-    console.log(data);
+    const orderCollection = collection(db, 'orders');
 
 
-
-    //es opcional 
-    useEffect(() => {
-        //window.addEventListener('mousemove', handleMove)
-        console.log('Código del useEffect');
-        //llamado a una api
-        //setInterval
-        return () => {
-            //clearInterval 
-            //abortar el llamado a la api
-            //window.removeEventListener('mousemove', handleMove)
-            console.log('Limpieza');
-        };
-    });
+    addDoc(orderCollection, objOrden)
+        .then((res) => {
+            setOrderId(res.id);
+            deleteAll();
+        })
+        .catch((error) => {
+            console.log('Hubo un error', error);
+        });
+    
+};
 
 
 
+
+const handleName = (e) => setName(e.target.value);
+const handleLastName = (e) => setLastName(e.target.value);
+const handleEmail = (e) => setEmail(e.target.value);
+const handleLastEmail = (e) => setLastEmail(e.target.value);
+
+
+if (orderId) {
 
     return (
-        <div style={{
-            minHeight: '70vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }}>
-            <form action="" onSubmit={enviarDatos}>
-                <input
-                    type="text"
-                    placeholder="Nombre"
-                    name="nombre"
-                    onChange={handleChange}
-                    value={data.nombre}
-                />
-                <input
-                    type="text"
-                    placeholder="Apellido"
-                    name="apellido"
-                    onChange={handleChange}
-                    value={data.apellido}
-                />
-                <button>Enviar</button>
-            </form>
-        </div>
-    )
+        <h1>Gracias por tu compra tu número de seguimiento es {orderId}</h1>
+    );
 }
+
+return (
+    <div style={{
+        minHeight: '70vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }}>
+        <form action="" onSubmit={enviarDatos}>
+            <input
+                type="text"
+                placeholder="Nombre"
+                name="nombre"
+                onChange={handleName}
+                value={name}
+            />
+            <input
+                type="text"
+                placeholder="Apellido"
+                name="apellido"
+                onChange={handleLastName}
+                value={lastName}
+            />
+            <input
+                type="text"
+                placeholder="email"
+                name="email"
+                onChange={handleEmail}
+                value={email}
+            />
+            <input
+                type="text"
+                placeholder="verificar email"
+                name="verificar email"
+                onChange={handleLastEmail}
+                value={lastEmail}
+            />
+
+            <button disabled={email !== lastEmail}>Enviar</button>
+        </form>
+    </div>
+)
+};
 
 export default Form
