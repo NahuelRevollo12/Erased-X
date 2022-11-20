@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
 
   }, [idProd]);
 
-  // If con return temprano
+  
   if (loading) {
     return (
       <div className="detail-container">

@@ -6,11 +6,11 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
 
-    //funciones
+    
     const addToCart = (item, cantidad) => {
 
         if (isInCart(item.id)) {
-            //sumo la cantidad
+            
             sumarCantidad(item, cantidad);
 
         } else {
@@ -18,13 +18,12 @@ const CartProvider = ({ children }) => {
         }
     };
 
-    //funcion para ver si está en el carrito
+    
     const isInCart = (id) => {
         return cart.some((prod) => prod.id === id);
     };
 
-    //funcion para sumar la cantidad de un mismo producto
-    //Hecho con un Ternario
+    
     const sumarCantidad = (itemPorAgregar, cantidad) => {
         const cartActualizado = cart.map((prodDelCarrito) => {
 
@@ -42,18 +41,18 @@ const CartProvider = ({ children }) => {
         setCart(cartActualizado);
     };
 
-    //funcion para vaciar el carrito
+    
     const deleteAll = () => {
         setCart([]);
     };
 
-    //funcion para eliminar un solo producto
+    
     const deleteOne = (id) => {
         const prodFiltrados = cart.filter((prod) => prod.id !== id);
         setCart(prodFiltrados);
     };
 
-    //funcion para sumar total $ del carrito
+    
     const totalPrecio = () => {
         let count = 0;
         const copia = [...cart];
@@ -63,7 +62,7 @@ const CartProvider = ({ children }) => {
         return count;
     };
 
-    //funcion para sumar unidades totales del carrito (CartWidget)
+    
     const totalUnidades = () => {
         let count = 0;
         const copia = [...cart];
@@ -73,23 +72,19 @@ const CartProvider = ({ children }) => {
         return count;
     };
 
-    // const totalUnidadesReduce = () => {
-    //     return cart.reduce((prev, curr)=> prev + curr.cantidad, 0)
-    // }
+    
 
 
 
 
 
-    //funcion para obtener la cantidad del producto
+    
     const cantidadDeProducto = (id) => {
         const product = cart.find((prod) => prod.id === id);
         return product?.cantidad;
     };
 
-    //console.log(cart);
-
-    //variables
+    
 
     return (
         <CartContext.Provider

@@ -3,7 +3,7 @@ import Item from './Item'
 
 const ItemList = memo(
   ({ items }) => {
-      //console.log('itemList');
+      
       return (
           <div className="item-list">
               {items.map((producto) => {

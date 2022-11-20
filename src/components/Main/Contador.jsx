@@ -4,7 +4,7 @@ const Contador = ({ stock, onAdd, initial = 1 }) => {
     const [cantidad, setCantidad] = useState(initial);
 
     const sumar = () => {
-        //cantidad < stock ? setCantidad(cantidad + 1) : alert('No se pude seguir sumado')
+        
         cantidad < stock && setCantidad(cantidad + 1);
         
     };
@@ -44,6 +44,3 @@ const Contador = ({ stock, onAdd, initial = 1 }) => {
 };
 
 export default Contador;
-
-// y acá la podriamos utilizarla
-//foo(parametro)

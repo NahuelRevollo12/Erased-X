@@ -6,14 +6,13 @@ import Contador from './Contador'
 
 const ItemDetail = ({ item }) => {
 
-  //const [cant, setCant] = useState(0);
+  
   const [show, setShow] = useState(true);
 
   const { addToCart, cantidadDeProducto } = useContext(CartContext);
 
   const onAdd = (cantidad) => {
-    //console.log(cantidad);
-    //setCant(cantidad);
+    
     setShow(false);
     addToCart(item, cantidad);
   };
@@ -29,7 +28,7 @@ const ItemDetail = ({ item }) => {
 
         <p>Las mejores prendas de ropa de esta temporada.</p>
         <h3>${item.price}.-</h3>
-        {/* <h3>{show ? 'True' : 'False'}</h3> */}
+        
         {show ? (
           <Contador
             stock={item.stock}
@@ -46,5 +45,3 @@ const ItemDetail = ({ item }) => {
 
 export default ItemDetail
 
-//Acá se podria hacer una function pero se podria utilizar en otro sitio como y recibiria un argumento de: (contador.jsx)
-//const foo = (argumento) => {}
